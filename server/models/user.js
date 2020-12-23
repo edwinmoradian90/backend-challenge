@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+const { generateReadableCreationDate } = require("../util/helpers");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -43,9 +44,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       registerDate: {
         type: DataTypes.STRING,
-        validate: {
-          isDate: true,
-        },
+        defaultValue: generateReadableCreationDate(),
       },
     },
     {

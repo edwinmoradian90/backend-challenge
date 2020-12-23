@@ -1,6 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const fs = require("fs");
+const path = require("path");
 const { sequelize, User, Company, Address } = require("./models");
 
 app.use(express.json());
@@ -42,6 +44,10 @@ app
         },
       ],
     });
+
+    const fileName = `user-data-${user.id}.json`;
+    const filePath = path.join(__dirname, `/data/${fileName}`);
+    fs.writeFileSync(filePath, JSON.stringify(user));
 
     res.status(200).json(user);
   })

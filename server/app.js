@@ -45,9 +45,10 @@ app
       ],
     });
 
-    const fileName = `user-data-${user.id}.json`;
-    const filePath = path.join(__dirname, `/data/${fileName}`);
-    fs.writeFileSync(filePath, JSON.stringify(user));
+    fs.writeFileSync(
+      path.join(__dirname, `/data/user-data${user.id}.json`),
+      JSON.stringify(user)
+    );
 
     res.status(200).json(user);
   })

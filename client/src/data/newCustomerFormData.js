@@ -1,99 +1,120 @@
-export default [
-  //USER FORM
-  {
-    id: "firstName",
-    name: "firstName",
-    placeholder: "First Name",
-    type: "text",
-    for: "user",
+const newCustomerFormData = {
+  customer: {
+    name: "Customer",
+    data: [
+      {
+        id: "firstName",
+        name: "firstName",
+        placeholder: "First Name",
+        type: "text",
+      },
+      {
+        id: "lastName",
+        name: "lastName",
+        placeholder: "Last Name",
+        type: "text",
+      },
+      {
+        id: "username",
+        name: "username",
+        placeholder: "User Name",
+        type: "text",
+      },
+      {
+        id: "email",
+        name: "email",
+        placeholder: "Email",
+        type: "email",
+      },
+      {
+        id: "contactNumber",
+        name: "contactNumber",
+        placeholder: "Contact Number",
+        type: "text",
+      },
+    ],
   },
-  {
-    id: "lastName",
-    name: "lastName",
-    placeholder: "Last Name",
-    type: "text",
-    for: "user",
+  customerAddress: {
+    name: "Customer Address",
+    data: [
+      {
+        id: "customerStreet",
+        name: "customerStreet",
+        placeholder: "Billing Street Address",
+        type: "text",
+      },
+      {
+        id: "customerSuburb",
+        name: "customerSuburb",
+        placeholder: "Suburb",
+        type: "text",
+      },
+      {
+        id: "customerState",
+        name: "customerState",
+        placeholder: "State",
+        type: "text",
+      },
+      {
+        id: "customerPostcode",
+        name: "customerPostcode",
+        placeholder: "Post Code",
+        type: "text",
+      },
+    ],
   },
-  {
-    id: "username",
-    name: "username",
-    placeholder: "User Name",
-    type: "text",
-    for: "user",
+  company: {
+    name: "Company",
+    data: [
+      {
+        id: "website",
+        name: "website",
+        placeholder: "Website",
+        type: "text",
+      },
+      {
+        id: "companyName",
+        name: "companyName",
+        placeholder: "Company Name",
+        type: "text",
+      },
+      {
+        id: "companyPhoneNumber",
+        name: "companyPhoneNumber",
+        placeholder: "Company Phone Number",
+        type: "text",
+      },
+    ],
   },
-  {
-    id: "email",
-    name: "email",
-    placeholder: "Email",
-    type: "email",
-    for: "user",
+  companyAddress: {
+    name: "Company Address",
+    data: [
+      {
+        id: "companyStreet",
+        name: "companyStreet",
+        placeholder: "Company Street Address",
+        type: "text",
+      },
+      {
+        id: "companySuburb",
+        name: "companySuburb",
+        placeholder: "Company Suburb",
+        type: "text",
+      },
+      {
+        id: "companyState",
+        name: "companyState",
+        placeholder: "State",
+        type: "text",
+      },
+      {
+        id: "companyPostcode",
+        name: "companyPostcode",
+        placeholder: "Post Code",
+        type: "text",
+      },
+    ],
   },
-  {
-    id: "contactNumber",
-    name: "contactNumber",
-    placeholder: "Contact Number",
-    type: "text",
-    for: "user",
-  },
-  {
-    id: "billingAddress",
-    name: "billingAddress",
-    placeholder: "Billing Address",
-    type: "text",
-    for: "user",
-  },
+};
 
-  //COMPANY FORM
-  {
-    id: "website",
-    name: "website",
-    placeholder: "Website",
-    type: "text",
-    for: "company",
-  },
-  {
-    id: "companyName",
-    name: "companyName",
-    placeholder: "Company Name",
-    type: "text",
-    for: "company",
-  },
-  {
-    id: "companyPhoneNumber",
-    name: "companyPhoneNumber",
-    placeholder: "Company Phone Number",
-    type: "text",
-    for: "company",
-  },
-
-  //ADDRESS FORM
-
-  {
-    id: "addressStreet",
-    name: "addressStreet",
-    placeholder: "Street",
-    type: "text",
-    for: "address",
-  },
-  {
-    id: "addressSuburb",
-    name: "addressSuburb",
-    placeholder: "Suburb",
-    type: "text",
-    for: "address",
-  },
-  {
-    id: "addressState",
-    name: "addressState",
-    placeholder: "State",
-    type: "text",
-    for: "address",
-  },
-  {
-    id: "addressPostcode",
-    name: "addressPostcode",
-    placeholder: "Post Code",
-    type: "text",
-    for: "address",
-  },
-];
+export default newCustomerFormData;

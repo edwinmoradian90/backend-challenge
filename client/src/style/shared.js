@@ -6,4 +6,8 @@ const Container = styled.div`
   width: 70vw;
 `;
 
-export { Container };
+const ToggleContent = styled.div`
+  display: ${(props) => (props.condition ? "block" : "none")};
+`;
+
+export { Container, ToggleContent };

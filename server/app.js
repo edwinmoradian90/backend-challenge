@@ -4,9 +4,11 @@ const app = express();
 const fs = require("fs");
 const path = require("path");
 const https = require("https");
+const cors = require("cors");
 const { sequelize, User, Company, Address } = require("./models");
 
 app.use(express.json());
+app.use(cors());
 
 app
   .get("/users/:id", async (req, res) => {
@@ -88,11 +90,19 @@ app
       firstName,
       lastName,
       username,
-      street,
-      postcode,
+      email,
+      contactNumber,
+      customerStreet,
+      customerPostcode,
+      customerSuburb,
+      customerState,
       website,
-      name,
-      phone,
+      companyName,
+      companyPhoneNumber,
+      companyStreet,
+      companyPostcode,
+      companySuburb,
+      companyState,
     } = req.body;
 
     try {
@@ -100,12 +110,28 @@ app
         firstName,
         lastName,
         username,
+        email,
+        contactNumber,
       });
 
-      await user.createBillingAddress({ street, postcode });
-      await user.createCompany({ website, name, phone });
+      await user.createBillingAddress({
+        postcode: customerPostcode,
+        state: customerState,
+        street: customerStreet,
+        suburb: customerSuburb,
+      });
+      await user.createCompany({
+        website: website,
+        name: companyName,
+        phone: companyPhoneNumber,
+      });
       const company = await user.getCompany();
-      const address = await company.createAddress({ street, postcode });
+      const address = await company.createAddress({
+        postcode: companyPostcode,
+        state: companyState,
+        street: companyStreet,
+        suburb: companySuburb,
+      });
 
       res.status(200).json({ user, company, address });
     } catch (err) {

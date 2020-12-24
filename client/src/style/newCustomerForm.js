@@ -21,8 +21,18 @@ const Input = styled.input`
   width: 400px;
 `;
 
+const SubmitConfirmation = styled.h1`
+  background: lightgreen;
+  border-radius: 5px;
+  color: #fff;
+  margin: 10px 0;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+`;
+
 const SubmitButton = styled.button`
-  background: blue;
+  background: lightgreen;
   border: 0;
   border-radius: 5px;
   color: #fff;
@@ -31,4 +41,10 @@ const SubmitButton = styled.button`
   width: 100%;
 `;
 
-export { Input, InputContainer, SectionContainer, SubmitButton };
+export {
+  Input,
+  InputContainer,
+  SectionContainer,
+  SubmitButton,
+  SubmitConfirmation,
+};

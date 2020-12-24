@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  FormCard,
   Input,
   InputContainer,
   SubmitButton,
@@ -17,7 +18,6 @@ const NewCustomerFormView = (props) => {
         </ToggleContent>
         <InputContainer className="customerFormContainer">
           {Object.keys(newCustomerFormData).map((field) => {
-            const components = [];
             const data = newCustomerFormData[field].data.map((input) => {
               const { type, name, placeholder, id } = input;
               const value = form[name];
@@ -33,9 +33,12 @@ const NewCustomerFormView = (props) => {
                 />
               );
             });
-            components.push(<h1>{newCustomerFormData[field].name}</h1>);
-            components.push(data);
-            return components;
+            return (
+              <FormCard className="formCard">
+                <h1>{newCustomerFormData[field].name}</h1>
+                {data}
+              </FormCard>
+            );
           })}
         </InputContainer>
         <SubmitButton onClick={onSubmit} className="submitform">

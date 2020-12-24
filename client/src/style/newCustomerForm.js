@@ -6,10 +6,23 @@ const SectionContainer = styled.section`
   padding: 40px;
 `;
 
+const FormCard = styled.div`
+  background: #fff;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 20px;
+`;
+
 const InputContainer = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 const Input = styled.input`
@@ -42,6 +55,7 @@ const SubmitButton = styled.button`
 `;
 
 export {
+  FormCard,
   Input,
   InputContainer,
   SectionContainer,

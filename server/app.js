@@ -4,12 +4,12 @@ const app = express();
 const cors = require("cors");
 const { sequelize } = require("./models");
 
-//Sending app instance to routes
-require("./routes")(app);
-
 //Middlewares
 app.use(express.json());
 app.use(cors());
+
+//Sending app instance to routes
+require("./routes")(app);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

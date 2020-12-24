@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 
 module.exports = (router) => {
   router.get("/", async (req, res) => {
-    const token = jwt.sign({ data: "userid" }, process.env.JWT_TOKEN, {
+    const token = jwt.sign({ data: "userid" }, process.env.JWT_SECRET, {
       expiresIn: "30m",
     });
 

@@ -1,4 +1,4 @@
-import React, { useState, uesEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import NewCustomerFormView from "./NewCustomerFormView";
 import newCustomerFormData from "../../data/newCustomerFormData";
@@ -34,7 +34,7 @@ const NewCustomerForm = () => {
 
   const onSubmit = async () => {
     try {
-      const user = axios.post("http://localhost:5000/users", form);
+      const user = await axios.post("users", form);
 
       if (user) {
         console.log(user);

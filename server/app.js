@@ -67,6 +67,7 @@ app
           },
         },
         (res) => {
+          if (err) throw err;
           console.log("statusCode: ", res.statusCode);
           console.log("headers: ", res.headers);
 

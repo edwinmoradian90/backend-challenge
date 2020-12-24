@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const fs = require("fs");
 const path = require("path");
+const https = require("https");
 const { sequelize, User, Company, Address } = require("./models");
 
 app.use(express.json());
@@ -48,6 +49,36 @@ app
     const file = `/data/${fileName}`;
 
     fs.writeFileSync(path.join(__dirname, file), JSON.stringify(user));
+    fs.readFile(path.join(__dirname, file), "utf8", function (err, data) {
+      const req = https.request(
+        "https://content.dropboxapi.com/2/files/upload",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${process.env.DROPBOX_TOKEN}`,
+            "Dropbox-API-Arg": JSON.stringify({
+              path: `/${fileName}`,
+              mode: "overwrite",
+              autorename: true,
+              mute: false,
+              strict_conflict: false,
+            }),
+            "Content-Type": "application/octet-stream",
+          },
+        },
+        (res) => {
+          console.log("statusCode: ", res.statusCode);
+          console.log("headers: ", res.headers);
+
+          res.on("data", function (d) {
+            process.stdout.write(d);
+          });
+        }
+      );
+
+      req.write(data);
+      req.end();
+    });
 
     res.status(200).json(user);
   })
